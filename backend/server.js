@@ -30,7 +30,7 @@ let pool = mysql.createPool({
 async function initDatabase() {
   try {
     const rootConnection = await mysql.createConnection({ ...dbConfig, multipleStatements: true });
-    await rootConnection.query(`CREATE DATABASE IF NOT EXISTS \\`${dbName}\\`;`);
+    await rootConnection.query(`CREATE DATABASE IF NOT EXISTS \`${dbName}\`;`);
     await rootConnection.end();
 
     await pool.query(`
